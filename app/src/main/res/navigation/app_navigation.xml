@@ -8,7 +8,7 @@
 <!--    need to be post list fragment-->
     <fragment
         android:id="@+id/postsListFragment"
-        android:name="com.example.foodguard.fragments.PostDetails.PostDetailsFragment"
+        android:name="com.example.foodguard.fragments.PostList.PostListFragment"
         android:label="Posts List"
         tools:layout="@layout/fragment_post_list">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/postDetailsFragment"
-        android:name="com.example.foodguard.fragments.PostDetails.PostDetailsFragment"
+        android:name="com.example.foodguard.fragments.PostDetailsFragment"
         android:label="Post Details"
         tools:layout="@layout/fragment_post_details">
 
