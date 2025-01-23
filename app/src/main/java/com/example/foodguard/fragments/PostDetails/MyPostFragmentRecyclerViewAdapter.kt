@@ -1,4 +1,4 @@
-//package com.example.foodguard.fragments
+package com.example.foodguard.fragments.PostDetails//package com.example.foodguard.fragments
 //
 //import androidx.recyclerview.widget.RecyclerView
 //import android.view.LayoutInflater

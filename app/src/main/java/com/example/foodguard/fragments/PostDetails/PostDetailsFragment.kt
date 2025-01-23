@@ -1,4 +1,4 @@
-package com.example.foodguard.fragments
+package com.example.foodguard.fragments.PostDetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.foodguard.R
-import com.example.foodguard.placeholder.PlaceholderContent
 
 /**
  * A fragment representing a list of Items.
