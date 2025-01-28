@@ -1,4 +1,4 @@
-package com.example.foodguard.fragments.PostList
+package com.example.foodguard.ui.fragments.PostList
 
 import android.os.Bundle
 import android.view.LayoutInflater

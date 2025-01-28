@@ -1,4 +1,4 @@
-package com.example.foodguard.activities
+package com.example.foodguard.ui.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
