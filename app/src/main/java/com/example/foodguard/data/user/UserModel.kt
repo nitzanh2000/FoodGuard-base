@@ -16,10 +16,10 @@ data class UserModel(
         return UserDTO(
             id = id,
             email = email,
-            displayName = display_name,
+            display_name = display_name,
             password = password,
             phone = phone,
-            profilePicture = profile_picture
+            profile_picture = profile_picture
         )
     }
     companion object {

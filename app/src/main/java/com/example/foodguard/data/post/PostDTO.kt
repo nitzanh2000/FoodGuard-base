@@ -1,25 +1,23 @@
 package com.example.foodguard.data.post
 
-import java.util.Date
-
 data class PostDTO(
     val description: String = "",
     val serving: Int = 0,
     val image: String,
     val address: String,
-    val authorId: String,
-    val expirationDate: String,
+    val author_id: String,
+    val expiration_date: String,
     val id: String? = null
 ) {
     fun toPostModel(): PostModel {
         return PostModel(
             id = id ?: "",
             description = description,
-            author_id = authorId,
+            author_id = author_id,
             image = image,
             address = address,
             serving =  serving,
-            expiration_date = expirationDate
+            expiration_date = expiration_date
         )
     }
 }

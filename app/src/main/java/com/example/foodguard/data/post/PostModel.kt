@@ -29,11 +29,11 @@ data class PostModel(
         return PostDTO(
             id = id,
             description = description,
-            authorId = author_id,
+            author_id = author_id,
             image = image,
             address = address,
             serving =  serving,
-            expirationDate = expiration_date
+            expiration_date = expiration_date
         )
     }
 }
