@@ -8,14 +8,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.foodguard.R
 import com.example.foodguard.data.PostViewModel
 import com.example.foodguard.data.user.UserModel
+import com.example.foodguard.roomDB.DBHolder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -33,21 +37,30 @@ class EditProfileFragment  : Fragment() {
     private var userId = "/0yJw5Nkp2dIPt51GSP9G"
     private var mainUser: UserModel? = null
 
-    fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network = connectivityManager.activeNetwork ?: return false
-        val networkCapabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
-        return networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val usernameText = view.findViewById<TextView>(R.id.display_name_input)
         imageView = view.findViewById<ImageView>(R.id.profile_image)
 
-        viewModel.getAllPostsByUserId(userId).observe(viewLifecycleOwner) { posts ->
-            Log.w("nitzan_test_connection", posts.toString());
-        }
+        val db = FirebaseFirestore.getInstance()
+        db.collection("post").get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    Log.d("Firestore", "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("Firestore", "Error fetching documents", exception)
+            }
+
+//        Log.w("nitzan_test_connection", DBHolder.getDatabase().postDad().findById("3kvz1V0swFXUyEuHx87B").toString())
+
+        viewModel.getAllPosts().observe(viewLifecycleOwner, {
+            if (it.isEmpty()) viewModel.invalidatePosts()
+            val reviewsList = it
+
+            Log.w("nitzan_test_connection", reviewsList.size.toString());
+        })
 
 
         viewModel.getUserById(userId).observe(viewLifecycleOwner) { user ->

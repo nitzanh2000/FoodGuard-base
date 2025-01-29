@@ -8,7 +8,6 @@ data class UserModel(
     @PrimaryKey val id: String = "",
     val email: String,
     val display_name: String,
-    val password : String,
     val phone : String,
     val profile_picture: String?
 ) {
@@ -17,7 +16,6 @@ data class UserModel(
             id = id,
             email = email,
             display_name = display_name,
-            password = password,
             phone = phone,
             profile_picture = profile_picture
         )
@@ -30,7 +28,6 @@ data class UserModel(
                 id = user?.uid!!,
                 email = user.email!!,
                 display_name = user.displayName!!,
-                password = "",
                 phone = user.phoneNumber!!,
                 profile_picture = ""
             )

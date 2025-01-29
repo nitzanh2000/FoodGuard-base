@@ -35,7 +35,7 @@ class PostRepository() {
         postsDao.deleteById(id)
     }
 
-    fun getPostById(id: String): LiveData<PostWithAuthor?> {
+    fun getPostById(id: String): PostModel {
         return postsDao.findById(id)
     }
 

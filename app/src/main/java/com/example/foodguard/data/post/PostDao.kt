@@ -13,7 +13,7 @@ interface PostDao {
     fun getAllPaginated(limit: Int, offset: Int): LiveData<List<PostWithAuthor>>
 
     @Query("SELECT * FROM post WHERE id = :id")
-    fun findById(id: String): LiveData<PostWithAuthor?>
+    fun findById(id: String): PostModel
 
     @Query("SELECT * FROM post WHERE author_id = :id")
     fun findByUserId(id: String): LiveData<List<PostWithAuthor>?>
