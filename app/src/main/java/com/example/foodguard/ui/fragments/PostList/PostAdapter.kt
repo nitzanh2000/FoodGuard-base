@@ -6,11 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodguard.R
-import com.example.foodguard.data.PostViewModel
 import com.example.foodguard.data.post.PostWithAuthor
 import com.example.foodguard.utils.decodeBase64ToImage
 import com.google.firebase.auth.FirebaseAuth
