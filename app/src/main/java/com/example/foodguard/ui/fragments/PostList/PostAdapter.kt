@@ -25,6 +25,7 @@ class PostAdapter(val onPostEditClick: (String) -> Unit, val onPostDeleteClick: 
 
         val authorName: TextView = postView.findViewById(R.id.username)
         val authorImage: ImageView = postView.findViewById(R.id.profile_image)
+        val deliveredSign: ImageView = postView.findViewById(R.id.delivered_sign)
     }
 
     private var posts: List <PostWithAuthor> = emptyList();
@@ -46,6 +47,13 @@ class PostAdapter(val onPostEditClick: (String) -> Unit, val onPostDeleteClick: 
         holder.expirationDate.text = currentPost.post.expiration_date
         holder.serving.text = currentPost.post.serving.toString()
         holder.authorName.text = currentPost.author.display_name
+
+        if (currentPost.post.is_delivered) {
+            holder.deliveredSign.visibility = View.VISIBLE
+        }
+        else {
+            holder.deliveredSign.visibility = View.GONE
+        }
 
         currentPost.author.profile_picture?.let {
             if (it != "") {
